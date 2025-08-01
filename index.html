@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MERAKI Estilista - Salón de Belleza en Manises</title>
+    <meta name="description" content="Salón de peluquería y belleza en Manises, Valencia. Cuidamos de ti y de tu cabello con servicios de peluquería y uñas.">
+
+    <!-- Google Fonts: Playfair Display for headings, Lato for body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Favicon: Gold 'M' on Black Background -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23000000'/%3E%3Ctext x='50' y='78' font-family='Playfair Display, serif' font-weight='700' font-size='80' fill='%23D4B46F' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
+
+    <style>
+        /* --- Global Styles & Variables --- */
+        :root {
+            --color-black: #000000;
+            --color-gold: #D4B46F;
+            --color-light-gold: #F0E0A8;
+            --color-dark-gold: #A4864C;
+            --color-white: #FFFFFF;
+            --color-off-white: #f8f8f8;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Lato', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: var(--font-body);
+            background-color: var(--color-black);
+            color: var(--color-off-white);
+            line-height: 1.7;
+            font-size: 16px;
+            padding-bottom: 120px; /* IMPORTANT: Prevents cookie banner from covering footer */
+        }
+
+        /* --- Header & Navigation --- */
+        .header {
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 15px 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--color-dark-gold);
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.5em;
+            color: var(--color-gold);
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        .logo .logo-subtitle {
+            color: var(--color-white);
+            font-weight: 400;
+            font-size: 0.8em;
+        }
+
+
+        .nav-menu a {
+            color: var(--color-off-white);
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 700;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: var(--color-gold);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        .hamburger .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            background-color: var(--color-white);
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* --- General Section Styling --- */
+        .section {
+            padding: 60px 5%; 
+            text-align: center;
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 2.8em;
+            color: var(--color-gold);
+            margin-bottom: 20px;
+        }
+
+        .section-subtitle {
+            font-size: 1.2em;
+            max-width: 700px;
+            margin: 0 auto 40px auto; 
+            color: #ccc;
+        }
+
+        /* --- Hero Section (Owner Intro) --- */
+        #hero {
+            background-color: var(--color-black);
+            padding-top: 40px;
+            padding-bottom: 20px;
+        }
+        .owner-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--color-gold);
+            margin-bottom: 20px;
+            box-shadow: 0 5px 25px rgba(212, 180, 111, 0.2);
+        }
+        .owner-name {
+            font-family: var(--font-heading);
+            color: var(--color-light-gold);
+            font-size: 2em;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        .hero-moto {
+            font-size: 1.3em;
+            margin-top: 10px;
+            font-style: italic;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* --- Services Section --- */
+        #services {
+            background-color: #111;
+        }
+        .services-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+        .service-card {
+            background-color: var(--color-black);
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid var(--color-dark-gold);
+            flex-basis: 300px;
+            flex-grow: 1;
+            max-width: 350px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(212, 180, 111, 0.1);
+        }
+        .service-card .icon {
+            font-size: 3em;
+            color: var(--color-gold);
+            margin-bottom: 20px;
+        }
+        .service-card h3 {
+            font-family: var(--font-heading);
+            font-size: 1.5em;
+            color: var(--color-light-gold);
+            margin-bottom: 10px;
+        }
+
+        /* --- Team Section --- */
+        #team {
+            background-color: var(--color-black);
+        }
+        .team-container {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+        .team-member {
+            text-align: center;
+        }
+        .team-photo {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--color-gold);
+            margin-bottom: 15px;
+        }
+        .team-name {
+            font-family: var(--font-heading);
+            color: var(--color-light-gold);
+            font-size: 1.6em;
+            margin: 0;
+        }
+
+        /* --- Testimonials Section --- */
+        #testimonials {
+            background-color: #111;
+        }
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            text-align: left;
+        }
+        .testimonial-card {
+            background-color: #1a1a1a;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 5px solid var(--color-gold);
+        }
+        .testimonial-card p {
+            margin: 0;
+            font-style: italic;
+            color: #ddd;
+        }
+
+        /* --- Contact & Location Section --- */
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: center;
+            align-items: flex-start;
+        }
+        .contact-info, .business-hours {
+            flex: 1;
+            min-width: 300px;
+            text-align: left;
+        }
+        .contact-info ul, .business-hours ul {
+            list-style: none;
+            padding: 0;
+        }
+        .contact-info li, .business-hours li {
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+        .contact-info .icon, .business-hours .icon {
+            color: var(--color-gold);
+            margin-right: 15px;
+            width: 20px;
+            text-align: center;
+        }
+        .contact-info a {
+            color: var(--color-off-white);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .contact-info a:hover {
+            color: var(--color-gold);
+        }
+        .map-container {
+            flex-basis: 100%;
+            margin-top: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .map-container iframe {
+            border-radius: 8px;
+            border: 2px solid var(--color-dark-gold);
+            width: 100%;
+            height: 400px;
+        }
+
+        /* --- Footer & Cookie Banner --- */
+        .footer {
+            background-color: var(--color-black);
+            text-align: center;
+            padding: 20px 5%;
+            border-top: 1px solid var(--color-dark-gold);
+            font-size: 0.9em;
+        }
+        .footer p {
+            margin: 5px 0;
+        }
+
+        #cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            padding: 20px;
+            z-index: 2000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            box-sizing: border-box;
+            border-top: 1px solid var(--color-dark-gold);
+        }
+        #cookie-banner p {
+            margin: 0;
+            color: var(--color-off-white);
+            font-size: 0.9em;
+            text-align: center;
+            flex-basis: 100%;
+        }
+        #cookie-banner .button-wrapper {
+            display: flex;
+            gap: 15px;
+        }
+        #cookie-banner button {
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            color: var(--color-black);
+            transition: opacity 0.3s;
+        }
+        #cookie-banner button:hover {
+            opacity: 0.8;
+        }
+        #accept-cookies {
+            background-color: var(--color-gold);
+        }
+        #decline-cookies {
+            background-color: #444;
+            color: var(--color-white);
+        }
+
+        @media (min-width: 768px) {
+            #cookie-banner {
+                flex-wrap: nowrap;
+            }
+             #cookie-banner p {
+                flex-basis: auto;
+            }
+        }
+
+
+        /* --- Responsive Styles --- */
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 75px; 
+                flex-direction: column;
+                background-color: var(--color-black);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                padding: 20px 0;
+            }
+            .nav-menu.active {
+                left: 0;
+            }
+            .nav-menu a {
+                margin: 15px 0;
+                display: block;
+            }
+            .hamburger {
+                display: block;
+            }
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+            .hamburger.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+            .hamburger.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+
+            .section-title { font-size: 2.2em; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <a href="#hero" class="logo">MERAKI <span class="logo-subtitle">Estilista</span></a>
+        <nav class="nav-menu" id="nav-menu">
+            <a href="#services">Servicios</a>
+            <a href="#team">Equipo</a>
+            <a href="#testimonials">Opiniones</a>
+            <a href="#contact">Contacto</a>
+        </nav>
+        <div class="hamburger" id="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="section">
+            <img src="JefeFoto.webp" alt="Foto de Esther, propietaria de Meraki Estilista" class="owner-photo">
+            <h2 class="owner-name">Esther</h2>
+            <p class="hero-moto">“Salón de peluquería y belleza, cuidamos de ti y de tu cabello. Os esperamos.”</p>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="section">
+            <h2 class="section-title">Nuestros Servicios</h2>
+            <p class="section-subtitle">Ofrecemos una experiencia de belleza completa, con especialistas en cabello y uñas para que te sientas radiante.</p>
+            <div class="services-container">
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-cut"></i></div>
+                    <h3>Peluquería Experta</h3>
+                    <p>Cortes modernos, coloración, tratamientos capilares y peinados para cualquier ocasión. De la mano de Eva, tu cabello estará siempre perfecto.</p>
+                </div>
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-hand-sparkles"></i></div>
+                    <h3>Estética de Uñas</h3>
+                    <p>Manicuras, pedicuras y diseños de uñas espectaculares. Esther se encarga de que tus manos y pies luzcan impecables.</p>
+                </div>
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-star"></i></div>
+                    <h3>Peinados de Fallera</h3>
+                    <p>Creamos moños y peinados tradicionales de fallera con la máxima precisión y autenticidad. Confía en nuestra experiencia para lucir espectacular en las fiestas más importantes de Valencia.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Our Team Section -->
+        <section id="team" class="section">
+            <h2 class="section-title">Nuestro Equipo</h2>
+            <div class="team-container">
+                <div class="team-member">
+                    <img src="TeamMember1.webp" alt="Miembro del equipo Eva" class="team-photo">
+                    <p class="team-name">Eva</p>
+                </div>
+                <div class="team-member">
+                    <img src="TeamMember2.webp" alt="Miembro del equipo Carla" class="team-photo">
+                    <p class="team-name">Carla</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="section">
+            <h2 class="section-title">Lo que dicen nuestras clientas</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p>"Me encanta esta peluquería... La peluquera, Eva, es muy amable y siempre me deja el pelo como lo quiero. La esteticista, Esther, hace las uñas genial..."</p>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Quise que me hiciera un corte de pelo (que me gustó mucho,) pero luego yo no me lo sabía arreglar y me lo volvió a cortar y tubo el detalle de no volverme a cobrar... Así, sí que vas con confianza."</p>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Sitio ideal para cualquier tratamiento de estética. Súper simpáticas. Sobre todo, Esther, es muy atenta y agradable y me hace las uñas genial."</p>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Llevo yendo un tiempo y estoy encantado con la profesionalidad del equipo, sobre todo con Esther que es la que me atiende. De total confianza."</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact & Location Section -->
+        <section id="contact" class="section">
+            <h2 class="section-title">Visítanos</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Información de Contacto</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt icon"></i>Carrer de les Roses, 16, 46940 Manises, Valencia</li>
+                        <li><i class="fas fa-phone icon"></i><a href="tel:634062980">634 06 29 80</a></li>
+                        <li><i class="fas fa-envelope icon"></i><a href="mailto:merakiestilisa@outlook.com">merakiestilisa@outlook.com</a></li>
+                        <li><i class="fab fa-instagram icon"></i><a href="https://www.instagram.com/merakiestilista_/" target="_blank">@merakiestilista_</a></li>
+                    </ul>
+                </div>
+                <div class="business-hours">
+                    <h3>Nuestro Horario</h3>
+                    <ul>
+                        <li><i class="fas fa-clock icon"></i>Martes - Viernes: 9:30 - 14:00 y 15:00 - 19:30</li>
+                        <li><i class="fas fa-clock icon"></i>Sábado: 9:30 - 14:00</li>
+                        <li><i class="fas fa-times-circle icon"></i>Domingo y Lunes: Cerrado</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3079.919934162092!2d-0.4578116846320803!3d39.4731309794862!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd6048d0a3a4b087%3A0x67343d22e0322301!2sCarrer%20de%20les%20Roses%2C%2016%2C%2046940%20Manises%2C%20Valencia%2C%20Spain!5e0!3m2!1sen!2sus!4v1678886543210!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 MERAKI Estilista. Todos los derechos reservados.</p>
+        <p>Diseño web creado con cariño.</p>
+    </footer>
+
+    <div id="cookie-banner">
+        <p>Este sitio web utiliza cookies para mejorar la experiencia del usuario. Al continuar, aceptas su uso.</p>
+        <div class="button-wrapper">
+            <button id="accept-cookies">Aceptar</button>
+            <button id="decline-cookies">Rechazar</button>
+        </div>
+    </div>
+
+    <script>
+        // Hamburger menu logic
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+        const navLinks = navMenu.querySelectorAll('a');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (navMenu.classList.contains('active')) {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                }
+            });
+        });
+
+        // Cookie banner logic
+        const cookieBanner = document.getElementById('cookie-banner');
+        const acceptBtn = document.getElementById('accept-cookies');
+        const declineBtn = document.getElementById('decline-cookies');
+
+        function hideBanner() {
+            cookieBanner.style.display = 'none';
+        }
+
+        acceptBtn.addEventListener('click', hideBanner);
+        declineBtn.addEventListener('click', hideBanner);
+    </script>
+</body>
+</html>
